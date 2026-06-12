@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wedding Invitation — Tuka &amp; Youssef</title>
-  <meta name="description" content="You are cordially invited to celebrate the wedding of Tuka and Youssef. Join us on our special day." />
+  <meta name="description"
+    content="You are cordially invited to celebrate the wedding of Tuka and Youssef. Join us on our special day." />
   <meta name="theme-color" content="#FAF7F2" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;600;700;800&family=Tajawal:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;600;700;800&family=Tajawal:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
 
   <style>
     /* ============================================
@@ -54,7 +58,9 @@
     }
 
     /* --- Reset & Base --- */
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -112,16 +118,30 @@
     }
 
     /* --- Scrollbar --- */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--clr-bg); }
-    ::-webkit-scrollbar-thumb { background: var(--clr-cream-dark); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--clr-brown-light); }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--clr-bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--clr-cream-dark);
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--clr-brown-light);
+    }
 
     /* --- Background Ambient Orbs --- */
     .ambient-bg {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 0;
       pointer-events: none;
       overflow: hidden;
@@ -136,35 +156,59 @@
     }
 
     .ambient-orb:nth-child(1) {
-      width: 500px; height: 500px;
+      width: 500px;
+      height: 500px;
       background: radial-gradient(circle, var(--clr-cream-dark) 0%, transparent 70%);
-      top: 5%; right: -120px;
+      top: 5%;
+      right: -120px;
     }
+
     .ambient-orb:nth-child(2) {
-      width: 450px; height: 450px;
+      width: 450px;
+      height: 450px;
       background: radial-gradient(circle, var(--clr-rose-light) 0%, transparent 70%);
-      bottom: 15%; left: -150px;
-      animation-delay: -8s; opacity: 0.2;
+      bottom: 15%;
+      left: -150px;
+      animation-delay: -8s;
+      opacity: 0.2;
     }
+
     .ambient-orb:nth-child(3) {
-      width: 350px; height: 350px;
+      width: 350px;
+      height: 350px;
       background: radial-gradient(circle, var(--clr-cream) 0%, transparent 70%);
-      top: 45%; right: 35%;
+      top: 45%;
+      right: 35%;
       animation-delay: -16s;
     }
 
     @keyframes floatOrb {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      25% { transform: translate(25px, -35px) scale(1.08); }
-      50% { transform: translate(-15px, 15px) scale(0.96); }
-      75% { transform: translate(30px, 25px) scale(1.04); }
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      25% {
+        transform: translate(25px, -35px) scale(1.08);
+      }
+
+      50% {
+        transform: translate(-15px, 15px) scale(0.96);
+      }
+
+      75% {
+        transform: translate(30px, 25px) scale(1.04);
+      }
     }
 
     /* --- Floating Hearts --- */
     .floating-hearts {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 0;
       pointer-events: none;
       overflow: hidden;
@@ -179,14 +223,30 @@
     }
 
     @keyframes floatHeart {
-      0%   { transform: translateY(0) rotate(0deg) scale(0.5); opacity: 0; }
-      10%  { opacity: 0.45; }
-      50%  { opacity: 0.2; }
-      100% { transform: translateY(-110vh) rotate(360deg) scale(1); opacity: 0; }
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.5);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.45;
+      }
+
+      50% {
+        opacity: 0.2;
+      }
+
+      100% {
+        transform: translateY(-110vh) rotate(360deg) scale(1);
+        opacity: 0;
+      }
     }
 
     /* --- Section Base --- */
-    section { position: relative; z-index: 1; }
+    section {
+      position: relative;
+      z-index: 1;
+    }
 
     /* --- Ornamental Divider --- */
     .ornament-divider {
@@ -210,8 +270,17 @@
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 0.5; transform: scale(1); }
-      50%      { opacity: 1; transform: scale(1.12); }
+
+      0%,
+      100% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.12);
+      }
     }
 
     /* ===========================================
@@ -219,7 +288,8 @@
        =========================================== */
     .lang-switcher {
       position: fixed;
-      top: 1.5rem; left: 1.5rem;
+      top: 1.5rem;
+      left: 1.5rem;
       z-index: 100;
       display: flex;
       border-radius: 50px;
@@ -280,10 +350,15 @@
       animation: fadeIn 1.5s ease 0.8s forwards;
     }
 
-    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
 
     .scroll-mouse {
-      width: 24px; height: 38px;
+      width: 24px;
+      height: 38px;
       border: 2px solid var(--clr-brown-warm);
       border-radius: 12px;
       position: relative;
@@ -291,18 +366,29 @@
     }
 
     .scroll-dot {
-      width: 4px; height: 8px;
+      width: 4px;
+      height: 8px;
       background: var(--clr-brown-warm);
       border-radius: 2px;
       position: absolute;
-      top: 6px; left: 50%;
+      top: 6px;
+      left: 50%;
       transform: translateX(-50%);
       animation: scrollBounce 2s ease-in-out infinite;
     }
 
     @keyframes scrollBounce {
-      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
-      50%      { transform: translateX(-50%) translateY(12px); opacity: 0.3; }
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(12px);
+        opacity: 0.3;
+      }
     }
 
     .scroll-text {
@@ -329,7 +415,9 @@
       position: relative;
     }
 
-    .hero-content { max-width: 700px; }
+    .hero-content {
+      max-width: 700px;
+    }
 
     .hero-badge {
       display: inline-block;
@@ -346,7 +434,9 @@
       margin-bottom: 2rem;
     }
 
-    .hero-names-wrapper { margin: 1.5rem 0; }
+    .hero-names-wrapper {
+      margin: 1.5rem 0;
+    }
 
     .hero-name {
       font-family: var(--font-display);
@@ -373,7 +463,9 @@
       margin-top: 2rem;
     }
 
-    body.ltr .hero-date { font-family: var(--font-body-en); }
+    body.ltr .hero-date {
+      font-family: var(--font-body-en);
+    }
 
     /* ===========================================
        SECTION 2: Couple / Verse
@@ -461,7 +553,7 @@
       opacity: 0;
       transform: translateY(60px) rotate(-6deg) scale(0.85);
       transition: opacity 1.2s var(--transition-smooth),
-                  transform 1.4s var(--transition-smooth);
+        transform 1.4s var(--transition-smooth);
     }
 
     .couple-portrait-wrapper.is-visible {
@@ -483,7 +575,7 @@
       border: 2px solid var(--clr-brown-warm);
       position: relative;
       transition: transform 0.6s var(--transition-smooth),
-                  box-shadow 0.5s ease;
+        box-shadow 0.5s ease;
     }
 
     .couple-portrait::before {
@@ -520,11 +612,13 @@
       opacity: 0;
       will-change: transform, opacity;
       transition: transform 1.4s var(--transition-smooth),
-                  opacity 1.2s var(--transition-smooth),
-                  text-shadow 0.8s ease 1.2s;
+        opacity 1.2s var(--transition-smooth),
+        text-shadow 0.8s ease 1.2s;
     }
 
-    body.ltr .reveal-name { font-family: var(--font-display-en); }
+    body.ltr .reveal-name {
+      font-family: var(--font-display-en);
+    }
 
     .reveal-name.bride {
       color: var(--clr-rose);
@@ -544,7 +638,7 @@
       transform: scale(0) rotate(-180deg);
       will-change: transform, opacity;
       transition: transform 0.8s var(--transition-smooth),
-                  opacity 0.6s var(--transition-smooth);
+        opacity 0.6s var(--transition-smooth);
     }
 
     /* Visible states */
@@ -555,12 +649,12 @@
 
     .reveal-name.bride.is-visible {
       text-shadow: 0 0 40px rgba(184, 133, 108, 0.25),
-                   0 0 80px rgba(184, 133, 108, 0.08);
+        0 0 80px rgba(184, 133, 108, 0.08);
     }
 
     .reveal-name.groom.is-visible {
       text-shadow: 0 0 40px rgba(74, 53, 37, 0.2),
-                   0 0 80px rgba(74, 53, 37, 0.06);
+        0 0 80px rgba(74, 53, 37, 0.06);
     }
 
     .reveal-connector.is-visible {
@@ -657,7 +751,9 @@
       line-height: 1.6;
     }
 
-    body.ltr .detail-card-value { font-family: var(--font-display-en); }
+    body.ltr .detail-card-value {
+      font-family: var(--font-display-en);
+    }
 
     /* Venue Image */
     .venue-image-wrapper {
@@ -702,14 +798,18 @@
       overflow: hidden;
     }
 
-    body.ltr .btn-maps { font-family: var(--font-body-en); }
+    body.ltr .btn-maps {
+      font-family: var(--font-body-en);
+    }
 
     .btn-maps::before {
       content: '';
       position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       transition: left 0.5s;
     }
 
@@ -718,9 +818,13 @@
       box-shadow: 0 6px 25px rgba(74, 53, 37, 0.25);
     }
 
-    .btn-maps:hover::before { left: 100%; }
+    .btn-maps:hover::before {
+      left: 100%;
+    }
 
-    .btn-maps-icon { font-size: 1.1rem; }
+    .btn-maps-icon {
+      font-size: 1.1rem;
+    }
 
     /* ===========================================
        SECTION 5: RSVP
@@ -755,7 +859,9 @@
       text-align: right;
     }
 
-    body.ltr .form-group { text-align: left; }
+    body.ltr .form-group {
+      text-align: left;
+    }
 
     .form-label {
       display: block;
@@ -766,7 +872,9 @@
       margin-bottom: 0.5rem;
     }
 
-    body.ltr .form-label { font-family: var(--font-body-en); }
+    body.ltr .form-label {
+      font-family: var(--font-body-en);
+    }
 
     .form-input,
     .form-select,
@@ -831,12 +939,15 @@
       margin-top: 0.5rem;
     }
 
-    .attendance-option { position: relative; }
+    .attendance-option {
+      position: relative;
+    }
 
     .attendance-option input[type="radio"] {
       position: absolute;
       opacity: 0;
-      width: 0; height: 0;
+      width: 0;
+      height: 0;
     }
 
     .attendance-label {
@@ -854,14 +965,16 @@
       background: rgba(74, 53, 37, 0.02);
     }
 
-    body.ltr .attendance-label { font-family: var(--font-body-en); }
+    body.ltr .attendance-label {
+      font-family: var(--font-body-en);
+    }
 
     .attendance-label:hover {
       border-color: var(--clr-brown-warm);
       color: var(--clr-brown);
     }
 
-    .attendance-option input[type="radio"]:checked + .attendance-label {
+    .attendance-option input[type="radio"]:checked+.attendance-label {
       background: rgba(74, 53, 37, 0.08);
       border-color: var(--clr-brown);
       color: var(--clr-brown);
@@ -886,14 +999,18 @@
       transition: all 0.5s var(--transition-smooth);
     }
 
-    body.ltr .btn-submit { font-family: var(--font-body-en); }
+    body.ltr .btn-submit {
+      font-family: var(--font-body-en);
+    }
 
     .btn-submit::before {
       content: '';
       position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
       transition: left 0.6s;
     }
 
@@ -902,33 +1019,47 @@
       box-shadow: 0 8px 30px rgba(74, 53, 37, 0.3);
     }
 
-    .btn-submit:hover::before { left: 100%; }
-    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:hover::before {
+      left: 100%;
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
 
     .btn-submit:disabled {
       opacity: 0.6;
       cursor: not-allowed;
       transform: none;
     }
-    .btn-submit:disabled:hover::before { left: -100%; }
+
+    .btn-submit:disabled:hover::before {
+      left: -100%;
+    }
 
     /* Loading spinner */
-    .btn-submit.loading { color: transparent; }
+    .btn-submit.loading {
+      color: transparent;
+    }
 
     .btn-submit.loading::after {
       content: '';
       position: absolute;
-      width: 24px; height: 24px;
+      width: 24px;
+      height: 24px;
       border: 3px solid rgba(250, 247, 242, 0.3);
       border-top-color: var(--clr-bg);
       border-radius: 50%;
-      top: 50%; left: 50%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
       animation: spin 0.7s linear infinite;
     }
 
     @keyframes spin {
-      to { transform: translate(-50%, -50%) rotate(360deg); }
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
     }
 
     /* Response Messages */
@@ -945,14 +1076,18 @@
     }
 
     .form-response.success {
-      display: block; opacity: 1; transform: translateY(0);
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
       background: rgba(90, 158, 111, 0.08);
       border: 1px solid rgba(90, 158, 111, 0.25);
       color: var(--clr-success);
     }
 
     .form-response.error {
-      display: block; opacity: 1; transform: translateY(0);
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
       background: rgba(199, 90, 90, 0.08);
       border: 1px solid rgba(199, 90, 90, 0.25);
       color: var(--clr-error);
@@ -984,7 +1119,7 @@
       text-align: center;
       padding: 4rem 3rem;
       max-width: 520px;
-      background: rgba(255,255,255,0.7);
+      background: rgba(255, 255, 255, 0.7);
       border: 1px solid var(--clr-border);
       border-radius: 28px;
       box-shadow: 0 20px 80px rgba(74, 53, 37, 0.12);
@@ -994,7 +1129,10 @@
     }
 
     @keyframes thankyouPop {
-      to { transform: scale(1) translateY(0); opacity: 1; }
+      to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
     }
 
     .thankyou-icon {
@@ -1011,7 +1149,9 @@
       margin-bottom: 1rem;
     }
 
-    body.ltr .thankyou-title { font-family: var(--font-display-en); }
+    body.ltr .thankyou-title {
+      font-family: var(--font-display-en);
+    }
 
     .thankyou-message {
       font-family: var(--font-body);
@@ -1021,7 +1161,9 @@
       margin-bottom: 2rem;
     }
 
-    body.ltr .thankyou-message { font-family: var(--font-body-en); }
+    body.ltr .thankyou-message {
+      font-family: var(--font-body-en);
+    }
 
     .thankyou-close {
       display: inline-flex;
@@ -1039,7 +1181,9 @@
       transition: all 0.4s var(--transition-smooth);
     }
 
-    body.ltr .thankyou-close { font-family: var(--font-body-en); }
+    body.ltr .thankyou-close {
+      font-family: var(--font-body-en);
+    }
 
     .thankyou-close:hover {
       transform: translateY(-2px);
@@ -1062,7 +1206,9 @@
       margin-bottom: 0.5rem;
     }
 
-    body.ltr .footer-names { font-family: var(--font-display-en); }
+    body.ltr .footer-names {
+      font-family: var(--font-display-en);
+    }
 
     .footer-tagline {
       font-family: var(--font-accent);
@@ -1071,7 +1217,9 @@
       letter-spacing: 0.1em;
     }
 
-    body.ltr .footer-tagline { font-family: var(--font-body-en); }
+    body.ltr .footer-tagline {
+      font-family: var(--font-body-en);
+    }
 
     /* ===========================================
        Scroll Reveal Utility
@@ -1087,27 +1235,64 @@
       transform: translateY(0);
     }
 
-    .scroll-reveal-stagger > * {
+    .scroll-reveal-stagger>* {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.6s var(--transition-smooth), transform 0.6s var(--transition-smooth);
     }
 
-    .scroll-reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: none; }
-    .scroll-reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.25s; opacity: 1; transform: none; }
-    .scroll-reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.4s; opacity: 1; transform: none; }
-    .scroll-reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.55s; opacity: 1; transform: none; }
+    .scroll-reveal-stagger.is-visible>*:nth-child(1) {
+      transition-delay: 0.1s;
+      opacity: 1;
+      transform: none;
+    }
+
+    .scroll-reveal-stagger.is-visible>*:nth-child(2) {
+      transition-delay: 0.25s;
+      opacity: 1;
+      transform: none;
+    }
+
+    .scroll-reveal-stagger.is-visible>*:nth-child(3) {
+      transition-delay: 0.4s;
+      opacity: 1;
+      transform: none;
+    }
+
+    .scroll-reveal-stagger.is-visible>*:nth-child(4) {
+      transition-delay: 0.55s;
+      opacity: 1;
+      transform: none;
+    }
 
     /* ===========================================
        Responsive
        =========================================== */
     @media (max-width: 768px) {
-      .hero { padding: 4rem 1.5rem 5rem; }
-      .couple-section, .rsvp-section { padding: 4rem 1.5rem; }
-      .details-section { padding: 2rem 1.5rem 4rem; }
-      .welcome-section { padding: 3rem 1.5rem 1rem; }
-      .rsvp-card { padding: 2rem 1.5rem; }
-      .names-reveal-inner { gap: 0.8rem; }
+      .hero {
+        padding: 4rem 1.5rem 5rem;
+      }
+
+      .couple-section,
+      .rsvp-section {
+        padding: 4rem 1.5rem;
+      }
+
+      .details-section {
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      .welcome-section {
+        padding: 3rem 1.5rem 1rem;
+      }
+
+      .rsvp-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .names-reveal-inner {
+        gap: 0.8rem;
+      }
 
       .couple-portrait {
         width: 170px;
@@ -1125,23 +1310,42 @@
         justify-content: center;
       }
 
-      .detail-card { padding: 2rem 1.5rem; }
+      .detail-card {
+        padding: 2rem 1.5rem;
+      }
 
       .couple-verse {
         padding: 1.5rem;
         font-size: 1.05rem;
       }
 
-      .lang-switcher { top: 1rem; left: 1rem; }
-      .welcome-text { font-size: 1rem; }
+      .lang-switcher {
+        top: 1rem;
+        left: 1rem;
+      }
 
-      .thankyou-card { padding: 3rem 2rem; margin: 1rem; }
+      .welcome-text {
+        font-size: 1rem;
+      }
+
+      .thankyou-card {
+        padding: 3rem 2rem;
+        margin: 1rem;
+      }
     }
 
     @media (max-width: 400px) {
-      html { font-size: 14px; }
-      .hero-name { font-size: 2.5rem; }
-      .reveal-name { font-size: 2.2rem; }
+      html {
+        font-size: 14px;
+      }
+
+      .hero-name {
+        font-size: 2.5rem;
+      }
+
+      .reveal-name {
+        font-size: 2.2rem;
+      }
 
       .couple-portrait {
         width: 140px;
@@ -1149,7 +1353,9 @@
         padding: 5px;
       }
 
-      .thankyou-card { padding: 2.5rem 1.5rem; }
+      .thankyou-card {
+        padding: 2.5rem 1.5rem;
+      }
     }
   </style>
 </head>
@@ -1220,8 +1426,8 @@
 
       <div class="couple-verse scroll-reveal always-arabic">
         <span>﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا
-        وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾</span>
-        <br/>
+          وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾</span>
+        <br />
         <small class="verse-ref">— سورة الروم، الآية ٢١</small>
       </div>
 
@@ -1255,7 +1461,9 @@
   <section class="welcome-section" id="welcome">
     <div class="section-container">
       <div class="scroll-reveal">
-        <p class="welcome-text" data-i18n="welcomeText">We are overjoyed to share this beautiful new chapter of our lives with you. Your presence will make our special day complete. We can't wait to celebrate our love and joy with our favorite people!</p>
+        <p class="welcome-text" data-i18n="welcomeText">We are overjoyed to share this beautiful new chapter of our
+          lives with you. Your presence will make our special day complete. We can't wait to celebrate our love and joy
+          with our favorite people!</p>
       </div>
 
       <div class="ornament-divider scroll-reveal">
@@ -1281,7 +1489,7 @@
         <div class="detail-card">
           <span class="detail-card-icon">📅</span>
           <span class="detail-card-label" data-i18n="dateLabel">Date</span>
-          <p class="detail-card-value" data-i18n="dateValue" data-i18n-html="true">Friday<br/>August 15, 2026</p>
+          <p class="detail-card-value" data-i18n="dateValue" data-i18n-html="true">Friday<br />August 15, 2026</p>
         </div>
 
         <div class="detail-card">
@@ -1297,11 +1505,8 @@
           <span class="detail-card-icon">📍</span>
           <span class="detail-card-label" data-i18n="venueLabel">Venue</span>
           <p class="detail-card-value" data-i18n="venueValue">Abdul Moneim Riad Mosque</p>
-          <a href="https://share.google/Kn53OVhujDRHMpnnh"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="btn-maps"
-             id="btn-maps">
+          <a href="https://share.google/Kn53OVhujDRHMpnnh" target="_blank" rel="noopener noreferrer" class="btn-maps"
+            id="btn-maps">
             <span class="btn-maps-icon">📍</span>
             <span data-i18n="mapsBtn">Go to Maps</span>
           </a>
@@ -1328,14 +1533,8 @@
           <!-- Name -->
           <div class="form-group">
             <label class="form-label" for="guest-name" data-i18n="formName">Your Name</label>
-            <input
-              type="text"
-              id="guest-name"
-              class="form-input"
-              data-i18n-placeholder="formNamePlaceholder"
-              placeholder="Enter your full name"
-              required
-            />
+            <input type="text" id="guest-name" class="form-input" data-i18n-placeholder="formNamePlaceholder"
+              placeholder="Enter your full name" required />
           </div>
 
           <!-- Attendance -->
@@ -1367,13 +1566,10 @@
 
           <!-- Message -->
           <div class="form-group">
-            <label class="form-label" for="guest-message" data-i18n="formMessage">Message for the couple (optional)</label>
-            <textarea
-              id="guest-message"
-              class="form-textarea"
-              data-i18n-placeholder="formMessagePlaceholder"
-              placeholder="Write a lovely message for the couple..."
-            ></textarea>
+            <label class="form-label" for="guest-message" data-i18n="formMessage">Message for the couple
+              (optional)</label>
+            <textarea id="guest-message" class="form-textarea" data-i18n-placeholder="formMessagePlaceholder"
+              placeholder="Write a lovely message for the couple..."></textarea>
           </div>
 
           <!-- Submit -->
@@ -1397,7 +1593,8 @@
     <div class="thankyou-card">
       <span class="thankyou-icon">💌</span>
       <h2 class="thankyou-title" data-i18n="thankyouTitle">Thank You!</h2>
-      <p class="thankyou-message" data-i18n="thankyouMessage">Your response has been recorded. We are thrilled and can't wait to celebrate with you!</p>
+      <p class="thankyou-message" data-i18n="thankyouMessage">Your response has been recorded. We are thrilled and can't
+        wait to celebrate with you!</p>
       <button class="thankyou-close" id="thankyou-close" data-i18n="thankyouClose">Back to Invitation ✦</button>
     </div>
   </div>
@@ -1612,9 +1809,9 @@
       if (!namesSection) return;
 
       const couplePortrait = namesSection.querySelector('.couple-portrait-wrapper');
-      const bride     = namesSection.querySelector('.reveal-name.bride');
+      const bride = namesSection.querySelector('.reveal-name.bride');
       const connector = namesSection.querySelector('.reveal-connector');
-      const groom     = namesSection.querySelector('.reveal-name.groom');
+      const groom = namesSection.querySelector('.reveal-name.groom');
       let namesRevealed = false;
 
       const namesObserver = new IntersectionObserver(
@@ -1703,13 +1900,13 @@
        ------------------------------------------- */
 
     // ⚠️  REPLACE THIS with your deployed Google Apps Script Web App URL
-    const GOOGLE_SHEET_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbxs5BfQbuJ39u0x8kDjV95L30OG9DPQaPtku_WkKsLVESe4qiajPCkjq5RVEZiWofFAHg/exec';
 
     function initRSVPForm() {
       const form = document.getElementById('rsvp-form');
       if (!form) return;
 
-      const submitBtn  = form.querySelector('.btn-submit');
+      const submitBtn = form.querySelector('.btn-submit');
       const responseEl = document.getElementById('form-response');
 
       form.addEventListener('submit', async (e) => {
@@ -1717,10 +1914,10 @@
 
         const dict = translations[currentLang];
 
-        const name        = form.querySelector('#guest-name').value.trim();
+        const name = form.querySelector('#guest-name').value.trim();
         const attendanceEl = form.querySelector('input[name="attendance"]:checked');
         const guestsCount = form.querySelector('#guests-count').value;
-        const message     = form.querySelector('#guest-message').value.trim();
+        const message = form.querySelector('#guest-message').value.trim();
 
         // Validation
         if (!name) {
@@ -1826,4 +2023,5 @@
   </script>
 
 </body>
+
 </html>
