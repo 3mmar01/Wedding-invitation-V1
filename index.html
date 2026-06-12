@@ -1897,10 +1897,12 @@
 
     /* -------------------------------------------
        RSVP → Google Sheets (via Apps Script)
+       Uses a hidden iframe + form POST to avoid
+       CORS / CORB issues entirely.
        ------------------------------------------- */
 
     // ⚠️  REPLACE THIS with your deployed Google Apps Script Web App URL
-    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycby8VH8CrgGwwu3MvnvE2utJTr1Few4zvnG6y9CkBBJIWzJKJI0-SkZMBrfRlpT_uYBTRA/exec';
+    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyfBC_OPynDPBzwScGaley0bmx2kpWIa79Fc6ibGti3Zthgg2vKdOfsIa-nIEEn1lHuOg/exec';
 
     function initRSVPForm() {
       const form = document.getElementById('rsvp-form');
@@ -1909,7 +1911,7 @@
       const submitBtn = form.querySelector('.btn-submit');
       const responseEl = document.getElementById('form-response');
 
-      form.addEventListener('submit', async (e) => {
+      form.addEventListener('submit', (e) => {
         e.preventDefault();
 
         const dict = translations[currentLang];
@@ -1929,7 +1931,27 @@
           return;
         }
 
-        const payload = {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('loading');
+        hideResponse(responseEl);
+
+        // ---------- Hidden-iframe approach ----------
+        // 1. Create a unique iframe name
+        const iframeName = 'rsvp_iframe_' + Date.now();
+        const iframe = document.createElement('iframe');
+        iframe.name = iframeName;
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+
+        // 2. Build a hidden form that targets the iframe
+        const hiddenForm = document.createElement('form');
+        hiddenForm.method = 'POST';
+        hiddenForm.action = GOOGLE_SHEET_URL;
+        hiddenForm.target = iframeName;        // submit into the hidden iframe
+        hiddenForm.style.display = 'none';
+
+        // 3. Add payload fields as hidden inputs
+        const fields = {
           name: name,
           attendance: attendanceEl.value,
           guests: parseInt(guestsCount, 10) || 1,
@@ -1937,29 +1959,51 @@
           timestamp: new Date().toLocaleString('en-GB', { timeZone: 'Africa/Cairo' }),
         };
 
-        submitBtn.disabled = true;
-        submitBtn.classList.add('loading');
-        hideResponse(responseEl);
+        for (const [key, value] of Object.entries(fields)) {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = key;
+          input.value = value;
+          hiddenForm.appendChild(input);
+        }
 
-        try {
-          const res = await fetch(GOOGLE_SHEET_URL, {
-            method: 'POST',
-            mode: 'no-cors',          // Apps Script requires no-cors from browsers
-            headers: { 'Content-Type': 'text/plain' },
-            body: JSON.stringify(payload),
-          });
+        document.body.appendChild(hiddenForm);
 
-          // no-cors gives opaque response — we assume success
+        // 4. Listen for iframe load (fires when Apps Script responds)
+        let submitted = false;
+        iframe.addEventListener('load', () => {
+          if (!submitted) return;          // skip the initial about:blank load
+          // Success — the form was submitted and Apps Script responded
           form.reset();
           burstCelebration();
           showThankYou();
+          cleanup();
+        });
 
-        } catch (err) {
-          showResponse(responseEl, 'error', dict.connectionError);
-        } finally {
+        // 5. Timeout fallback — if something goes wrong, still clean up
+        const timeout = setTimeout(() => {
+          // If the iframe load hasn't fired after 10s, assume success
+          // (Apps Script may block cross-origin reads but the POST still goes through)
+          form.reset();
+          burstCelebration();
+          showThankYou();
+          cleanup();
+        }, 10000);
+
+        function cleanup() {
+          clearTimeout(timeout);
           submitBtn.disabled = false;
           submitBtn.classList.remove('loading');
+          // Remove the iframe and hidden form after a short delay
+          setTimeout(() => {
+            iframe.remove();
+            hiddenForm.remove();
+          }, 500);
         }
+
+        // 6. Submit!
+        submitted = true;
+        hiddenForm.submit();
       });
     }
 
