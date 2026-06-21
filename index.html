@@ -74,7 +74,10 @@
 
     body {
       font-family: var(--font-body);
-      background: var(--clr-bg);
+      background-color: var(--clr-bg);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23E8E1D5' stroke-width='0.6' opacity='0.55'%3E%3C!-- Central diamond --%3E%3Cpath d='M40 16 L52 40 L40 64 L28 40 Z'/%3E%3C!-- Inner diamond --%3E%3Cpath d='M40 24 L48 40 L40 56 L32 40 Z'/%3E%3C!-- Cross petals --%3E%3Cellipse cx='40' cy='22' rx='4' ry='8' transform='rotate(0 40 22)'/%3E%3Cellipse cx='40' cy='58' rx='4' ry='8'/%3E%3Cellipse cx='22' cy='40' rx='8' ry='4'/%3E%3Cellipse cx='58' cy='40' rx='8' ry='4'/%3E%3C!-- Diagonal petals --%3E%3Cellipse cx='30' cy='28' rx='3' ry='6' transform='rotate(-45 30 28)'/%3E%3Cellipse cx='50' cy='28' rx='3' ry='6' transform='rotate(45 50 28)'/%3E%3Cellipse cx='30' cy='52' rx='3' ry='6' transform='rotate(45 30 52)'/%3E%3Cellipse cx='50' cy='52' rx='3' ry='6' transform='rotate(-45 50 52)'/%3E%3C!-- Corner dots --%3E%3Ccircle cx='40' cy='40' r='2'/%3E%3Ccircle cx='0' cy='0' r='1.5'/%3E%3Ccircle cx='80' cy='0' r='1.5'/%3E%3Ccircle cx='0' cy='80' r='1.5'/%3E%3Ccircle cx='80' cy='80' r='1.5'/%3E%3C!-- Connecting arcs --%3E%3Cpath d='M0 0 Q20 10 40 0'/%3E%3Cpath d='M40 0 Q60 10 80 0'/%3E%3Cpath d='M0 80 Q20 70 40 80'/%3E%3Cpath d='M40 80 Q60 70 80 80'/%3E%3Cpath d='M0 0 Q10 20 0 40'/%3E%3Cpath d='M0 40 Q10 60 0 80'/%3E%3Cpath d='M80 0 Q70 20 80 40'/%3E%3Cpath d='M80 40 Q70 60 80 80'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 80px 80px;
       color: var(--clr-text);
       direction: rtl;
       text-align: right;
@@ -82,6 +85,161 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* --- Corner Ornaments (premium framed look) --- */
+    .corner-ornaments {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .corner-ornament {
+      position: absolute;
+      color: var(--clr-brown);
+      opacity: 0.18;
+      font-size: 1.6rem;
+      line-height: 1;
+      letter-spacing: 0.3em;
+    }
+
+    /* Top-left */
+    .corner-ornament--tl {
+      top: 1.5rem;
+      left: 1.5rem;
+    }
+
+    .corner-ornament--tl::before {
+      content: '✦ ─── ✦';
+    }
+
+    .corner-ornament--tl::after {
+      content: '│';
+      display: block;
+      margin-top: 0.2rem;
+      margin-left: 0.05em;
+      letter-spacing: 0;
+      font-size: 1.2rem;
+      opacity: 0.6;
+    }
+
+    /* Top-right */
+    .corner-ornament--tr {
+      top: 1.5rem;
+      right: 1.5rem;
+    }
+
+    .corner-ornament--tr::before {
+      content: '✦ ─── ✦';
+    }
+
+    .corner-ornament--tr::after {
+      content: '│';
+      display: block;
+      margin-top: 0.2rem;
+      text-align: right;
+      letter-spacing: 0;
+      font-size: 1.2rem;
+      opacity: 0.6;
+    }
+
+    /* Bottom-left */
+    .corner-ornament--bl {
+      bottom: 1.5rem;
+      left: 1.5rem;
+    }
+
+    .corner-ornament--bl::after {
+      content: '✦ ─── ✦';
+    }
+
+    .corner-ornament--bl::before {
+      content: '│';
+      display: block;
+      margin-bottom: 0.2rem;
+      margin-left: 0.05em;
+      letter-spacing: 0;
+      font-size: 1.2rem;
+      opacity: 0.6;
+    }
+
+    /* Bottom-right */
+    .corner-ornament--br {
+      bottom: 1.5rem;
+      right: 1.5rem;
+    }
+
+    .corner-ornament--br::after {
+      content: '✦ ─── ✦';
+    }
+
+    .corner-ornament--br::before {
+      content: '│';
+      display: block;
+      margin-bottom: 0.2rem;
+      text-align: right;
+      letter-spacing: 0;
+      font-size: 1.2rem;
+      opacity: 0.6;
+    }
+
+    /* Responsive: smaller on mobile */
+    @media (max-width: 768px) {
+      .corner-ornament {
+        font-size: 1rem;
+        opacity: 0.14;
+      }
+
+      .corner-ornament--tl,
+      .corner-ornament--bl {
+        left: 0.75rem;
+      }
+
+      .corner-ornament--tr,
+      .corner-ornament--br {
+        right: 0.75rem;
+      }
+
+      .corner-ornament--tl,
+      .corner-ornament--tr {
+        top: 0.75rem;
+      }
+
+      .corner-ornament--bl,
+      .corner-ornament--br {
+        bottom: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .corner-ornament {
+        font-size: 0.75rem;
+        opacity: 0.12;
+      }
+
+      .corner-ornament--tl,
+      .corner-ornament--bl {
+        left: 0.5rem;
+      }
+
+      .corner-ornament--tr,
+      .corner-ornament--br {
+        right: 0.5rem;
+      }
+
+      .corner-ornament--tl,
+      .corner-ornament--tr {
+        top: 0.5rem;
+      }
+
+      .corner-ornament--bl,
+      .corner-ornament--br {
+        bottom: 0.5rem;
+      }
     }
 
     /* LTR mode */
@@ -330,76 +488,447 @@
     }
 
     /* ===========================================
-       SECTION 0: Blank Intro (100vh)
+       SECTION 0: Envelope Intro Overlay
        =========================================== */
-    .intro-blank {
-      min-height: 100vh;
+    .envelope-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
-      padding-bottom: 3rem;
-      position: relative;
+      background: url('images/wreath-bg.avif') center / cover no-repeat;
+      background-color: #3D2B1F;
+      transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), visibility 1s;
+      overflow: hidden;
     }
 
-    .intro-scroll-indicator {
+    .envelope-overlay.fadeout {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Particle Canvas */
+    #particle-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Envelope Scene */
+    .envelope-scene {
+      position: relative;
+      z-index: 2;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
-      opacity: 0;
-      animation: fadeIn 1.5s ease 0.8s forwards;
+      gap: 1.5rem;
+      perspective: 1200px;
     }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    .scroll-mouse {
-      width: 24px;
-      height: 38px;
-      border: 2px solid var(--clr-brown-warm);
-      border-radius: 12px;
+    /* Gatefold Container */
+    .envelope-container {
       position: relative;
-      opacity: 0.4;
+      width: 260px;
+      height: 380px;
+      cursor: pointer;
+      animation: envelopeFloat 3.5s ease-in-out infinite;
+      transform-style: preserve-3d;
     }
 
-    .scroll-dot {
-      width: 4px;
-      height: 8px;
-      background: var(--clr-brown-warm);
-      border-radius: 2px;
-      position: absolute;
-      top: 6px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: scrollBounce 2s ease-in-out infinite;
-    }
-
-    @keyframes scrollBounce {
+    @keyframes envelopeFloat {
 
       0%,
       100% {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
+        transform: translateY(0);
       }
 
       50% {
-        transform: translateX(-50%) translateY(12px);
-        opacity: 0.3;
+        transform: translateY(-10px);
       }
     }
 
-    .scroll-text {
-      font-family: var(--font-accent);
-      font-size: 0.7rem;
-      color: var(--clr-text-light);
-      letter-spacing: 0.1em;
+    .envelope-container.opened {
+      animation: none;
     }
 
-    body.ltr .scroll-text {
+    /* Letter (inner card, behind doors) */
+    .envelope-letter {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(175deg, #FFFDF9 0%, #FAF7F2 40%, #F0EBE3 100%);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      z-index: 1;
+      box-shadow: inset 0 0 30px rgba(74, 53, 37, 0.06);
+      border: 1px solid rgba(74, 53, 37, 0.06);
+      transform: scale(0.92);
+      opacity: 0.6;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s,
+        opacity 0.6s ease 0.3s;
+    }
+
+    .envelope-container.opened .envelope-letter {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    /* Letter decorative lines */
+    .envelope-letter::before {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--clr-brown-warm), transparent);
+      opacity: 0.35;
+    }
+
+    .envelope-letter::after {
+      content: '';
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--clr-brown-warm), transparent);
+      opacity: 0.25;
+    }
+
+    /* Letter ornament star */
+    .letter-ornament {
+      font-size: 0.85rem;
+      color: var(--clr-brown-warm);
+      opacity: 0.5;
+      letter-spacing: 0.5em;
+    }
+
+    .letter-names {
+      font-family: var(--font-display-en);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--clr-brown);
+      letter-spacing: 0.02em;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    body.rtl .letter-names,
+    body:not(.ltr) .letter-names {
+      font-family: var(--font-display);
+    }
+
+    .letter-invite {
+      font-family: var(--font-accent);
+      font-size: 0.7rem;
+      color: var(--clr-brown-light);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    /* ---- Gatefold Doors ---- */
+    .gatefold-door {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      z-index: 2;
+      transform-style: preserve-3d;
+      transition: transform 0.9s cubic-bezier(0.34, 1.3, 0.64, 1);
+      backface-visibility: visible;
+    }
+
+    .gatefold-door--left {
+      left: 0;
+      transform-origin: left center;
+      border-radius: 6px 0 0 6px;
+    }
+
+    .gatefold-door--right {
+      right: 0;
+      transform-origin: right center;
+      border-radius: 0 6px 6px 0;
+    }
+
+    /* Door faces */
+    .gatefold-door-face {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+
+    /* Front of door */
+    .gatefold-door-front {
+      background: linear-gradient(165deg, #5C4033 0%, #4A3525 50%, #3D2B1F 100%);
+      z-index: 2;
+    }
+
+    .gatefold-door--left .gatefold-door-front {
+      border-radius: 6px 0 0 6px;
+      box-shadow:
+        4px 0 16px rgba(0, 0, 0, 0.15),
+        inset -1px 0 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .gatefold-door--right .gatefold-door-front {
+      border-radius: 0 6px 6px 0;
+      box-shadow:
+        -4px 0 16px rgba(0, 0, 0, 0.15),
+        inset 1px 0 0 rgba(255, 255, 255, 0.05);
+    }
+
+    /* Decorative emboss on doors */
+    .gatefold-door-front::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      border: 1px solid rgba(184, 133, 108, 0.2);
+      border-radius: 4px;
+    }
+
+    .gatefold-door--left .gatefold-door-front::before {
+      left: 10px;
+      right: 6px;
+    }
+
+    .gatefold-door--right .gatefold-door-front::before {
+      left: 6px;
+      right: 10px;
+    }
+
+    /* Inner decorative diamond on each door */
+    .gatefold-door-front::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 30px;
+      height: 30px;
+      border: 1px solid rgba(184, 133, 108, 0.18);
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .gatefold-door--left .gatefold-door-front::after {
+      left: 50%;
+      margin-left: -15px;
+    }
+
+    .gatefold-door--right .gatefold-door-front::after {
+      right: 50%;
+      margin-right: -15px;
+    }
+
+    /* Back of door (seen when opened) */
+    .gatefold-door-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(165deg, #6B4F3E 0%, #5C4033 50%, #4A3525 100%);
+      z-index: 1;
+    }
+
+    .gatefold-door--left .gatefold-door-back {
+      border-radius: 0 6px 6px 0;
+    }
+
+    .gatefold-door--right .gatefold-door-back {
+      border-radius: 6px 0 0 6px;
+    }
+
+    /* Open state */
+    .envelope-container.opened .gatefold-door--left {
+      transform: rotateY(-165deg);
+    }
+
+    .envelope-container.opened .gatefold-door--right {
+      transform: rotateY(165deg);
+    }
+
+    /* Wax Seal — centered at the seam */
+    .envelope-seal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 58px;
+      height: 58px;
+      background: radial-gradient(circle at 35% 35%, #C9967E 0%, #8B5E3C 50%, #6B4226 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.35),
+        inset 0 1px 3px rgba(255, 255, 255, 0.2),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.3s ease;
+    }
+
+    /* Seal decorative ring */
+    .envelope-seal::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      right: 4px;
+      bottom: 4px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .envelope-container.opened .envelope-seal {
+      transform: translate(-50%, -50%) scale(0) rotate(90deg);
+      opacity: 0;
+    }
+
+    /* Envelope Hint */
+    .envelope-hint {
+      font-family: var(--font-accent);
+      font-size: 0.85rem;
+      color: rgba(237, 232, 223, 0.8);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: hintPulse 2.5s ease-in-out infinite;
+      user-select: none;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    body.ltr .envelope-hint {
       font-family: var(--font-body-en);
+    }
+
+    @keyframes hintPulse {
+
+      0%,
+      100% {
+        opacity: 0.45;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* Flower Petals */
+    .petal {
+      position: absolute;
+      width: var(--petal-size, 20px);
+      height: var(--petal-size, 20px);
+      border-radius: 60% 40% 50% 50%;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10;
+      animation: petalBurst var(--petal-duration, 2.5s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: var(--petal-delay, 0s);
+      filter: blur(0.5px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes petalBurst {
+      0% {
+        opacity: 1;
+        transform:
+          translate(0, 0) rotate(0deg) scale(0);
+      }
+
+      20% {
+        opacity: 1;
+        transform:
+          translate(calc(var(--petal-x, 0px) * 0.4),
+            calc(var(--petal-y, 0px) * 0.4)) rotate(calc(var(--petal-rot, 0deg) * 0.4)) scale(1.2);
+      }
+
+      60% {
+        opacity: 0.8;
+        transform:
+          translate(calc(var(--petal-x, 0px) * 0.8),
+            calc(var(--petal-y, 0px) * 0.8 - 60px)) rotate(calc(var(--petal-rot, 0deg) * 0.7)) scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform:
+          translate(var(--petal-x, 0px),
+            calc(var(--petal-y, 0px) - 150px)) rotate(var(--petal-rot, 0deg)) scale(0.6);
+      }
+    }
+
+    /* Responsive Gatefold */
+    @media (max-width: 768px) {
+      .envelope-container {
+        width: 220px;
+        height: 320px;
+      }
+
+      .letter-names {
+        font-size: 1.3rem;
+      }
+
+      .letter-invite {
+        font-size: 0.65rem;
+      }
+
+      .envelope-seal {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .envelope-container {
+        width: 190px;
+        height: 280px;
+      }
+
+      .letter-names {
+        font-size: 1.1rem;
+      }
+
+      .letter-invite {
+        font-size: 0.6rem;
+      }
+
+      .letter-ornament {
+        font-size: 0.7rem;
+      }
+
+      .envelope-seal {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+      }
+
+      .envelope-hint {
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Body scroll lock while envelope is active */
+    body.envelope-active {
+      overflow: hidden !important;
     }
 
     /* ===========================================
@@ -1360,7 +1889,46 @@
   </style>
 </head>
 
-<body class="ltr">
+<body class="ltr envelope-active">
+
+  <!-- Corner Ornaments -->
+  <div class="corner-ornaments" aria-hidden="true">
+    <span class="corner-ornament corner-ornament--tl"></span>
+    <span class="corner-ornament corner-ornament--tr"></span>
+    <span class="corner-ornament corner-ornament--bl"></span>
+    <span class="corner-ornament corner-ornament--br"></span>
+  </div>
+
+  <!-- =============================================
+       Full-Screen Envelope Intro Overlay
+       ============================================= -->
+  <div class="envelope-overlay" id="envelope-overlay">
+    <canvas id="particle-canvas"></canvas>
+    <div class="envelope-scene">
+      <div class="envelope-container" id="envelope-container">
+        <!-- Inner letter card -->
+        <div class="envelope-letter">
+          <span class="letter-ornament">✦ ✦ ✦</span>
+          <span class="letter-names" data-i18n="letterNames">Toqa &amp; Youssef</span>
+          <span class="letter-invite" data-i18n="letterInvite">Wedding Invitation</span>
+          <span class="letter-ornament">✦</span>
+        </div>
+        <!-- Left door -->
+        <div class="gatefold-door gatefold-door--left">
+          <div class="gatefold-door-face gatefold-door-front"></div>
+          <div class="gatefold-door-face gatefold-door-back"></div>
+        </div>
+        <!-- Right door -->
+        <div class="gatefold-door gatefold-door--right">
+          <div class="gatefold-door-face gatefold-door-front"></div>
+          <div class="gatefold-door-face gatefold-door-back"></div>
+        </div>
+        <!-- Wax seal at center seam -->
+        <div class="envelope-seal">💌</div>
+      </div>
+      <p class="envelope-hint" data-i18n="envelopeHint">Click to open</p>
+    </div>
+  </div>
 
   <!-- Ambient Background Orbs -->
   <div class="ambient-bg">
@@ -1379,18 +1947,6 @@
     <button class="lang-btn" id="btn-ar" data-lang="ar">AR</button>
     <button class="lang-btn active" id="btn-en" data-lang="en">EN</button>
   </div>
-
-  <!-- =============================================
-       SECTION 0: Blank Intro (100vh)
-       ============================================= -->
-  <section class="intro-blank" id="intro">
-    <div class="intro-scroll-indicator" aria-hidden="true">
-      <div class="scroll-mouse">
-        <div class="scroll-dot"></div>
-      </div>
-      <span class="scroll-text" data-i18n="scrollText">Scroll down</span>
-    </div>
-  </section>
 
   <!-- =============================================
        SECTION 1: Hero
@@ -1489,13 +2045,13 @@
         <div class="detail-card">
           <span class="detail-card-icon">📅</span>
           <span class="detail-card-label" data-i18n="dateLabel">Date</span>
-          <p class="detail-card-value" data-i18n="dateValue" data-i18n-html="true">Friday<br />August 15, 2026</p>
+          <p class="detail-card-value" data-i18n="dateValue" data-i18n-html="true">Wednesday<br />September 16, 2026</p>
         </div>
 
         <div class="detail-card">
           <span class="detail-card-icon">🕖</span>
           <span class="detail-card-label" data-i18n="timeLabel">Time</span>
-          <p class="detail-card-value" data-i18n="timeValue">7:00 PM</p>
+          <p class="detail-card-value" data-i18n="timeValue">6:00 PM</p>
         </div>
 
         <div class="detail-card">
@@ -1622,6 +2178,7 @@
        ============================================ */
 
     document.addEventListener('DOMContentLoaded', () => {
+      initEnvelopeIntro();
       initLanguageSwitcher();
       initScrollReveal();
       initFloatingHearts();
@@ -1647,9 +2204,9 @@
         detailsSubtitle: 'تفاصيل الحفل',
         detailsTitle: 'موعدنا معكم',
         dateLabel: 'التاريخ',
-        dateValue: 'الجمعة<br/>١٥ أغسطس ٢٠٢٦',
+        dateValue: 'الأربعاء<br/>١٦ سبتمبر ٢٠٢٦',
         timeLabel: 'الوقت',
-        timeValue: 'السابعة مساءً',
+        timeValue: 'السادسة مساءً',
         venueLabel: 'المكان',
         venueValue: 'مسجد عبد المنعم رياض',
         mapsBtn: 'الذهاب إلى الخريطة',
@@ -1678,6 +2235,9 @@
         thankyouTitle: 'شكراً لكم!',
         thankyouMessage: 'تم تسجيل ردكم بنجاح. نحن في غاية السعادة ونتطلع للاحتفال معكم!',
         thankyouClose: 'العودة للدعوة ✦',
+        envelopeHint: 'اضغط لفتح الدعوة',
+        letterNames: 'تقى و يوسف',
+        letterInvite: 'دعوة زفاف',
       },
       en: {
         heroNameBride: 'Toqa',
@@ -1724,6 +2284,9 @@
         thankyouTitle: 'Thank You!',
         thankyouMessage: 'Your response has been recorded. We are thrilled and can\'t wait to celebrate with you!',
         thankyouClose: 'Back to Invitation ✦',
+        envelopeHint: 'Click to open',
+        letterNames: 'Toqa & Youssef',
+        letterInvite: 'Wedding Invitation',
       },
     };
 
@@ -2062,6 +2625,138 @@
           container.appendChild(el);
           setTimeout(() => el.remove(), 10000);
         }, i * 100);
+      }
+    }
+
+    /* -------------------------------------------
+       Envelope Intro
+       ------------------------------------------- */
+    function initEnvelopeIntro() {
+      const overlay = document.getElementById('envelope-overlay');
+      const container = document.getElementById('envelope-container');
+      const canvas = document.getElementById('particle-canvas');
+      if (!overlay || !container || !canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      let animFrameId;
+      let isOpen = false;
+
+      // --- Particle System ---
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      // Spawn particles
+      const PARTICLE_COUNT = 55;
+      for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: 1 + Math.random() * 2.5,
+          dx: (Math.random() - 0.5) * 0.4,
+          dy: -(0.2 + Math.random() * 0.5),
+          opacity: 0.15 + Math.random() * 0.35,
+          color: Math.random() > 0.5
+            ? `rgba(237, 232, 223, OPACITY)`   // cream
+            : `rgba(184, 133, 108, OPACITY)`,   // rose
+        });
+      }
+
+      function drawParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (const p of particles) {
+          p.x += p.dx;
+          p.y += p.dy;
+          // Wrap around
+          if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
+          if (p.x < -10) p.x = canvas.width + 10;
+          if (p.x > canvas.width + 10) p.x = -10;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.color.replace('OPACITY', p.opacity);
+          ctx.fill();
+        }
+        animFrameId = requestAnimationFrame(drawParticles);
+      }
+      drawParticles();
+
+      // --- Click to Open ---
+      container.addEventListener('click', () => {
+        if (isOpen) return;
+        isOpen = true;
+
+        // 1. Open gatefold doors (seal pops, doors swing)
+        container.classList.add('opened');
+
+        // 2. Spawn petals after doors swing open
+        setTimeout(() => {
+          spawnPetals(overlay);
+        }, 750);
+
+        // 3. Fade out overlay after petals
+        setTimeout(() => {
+          overlay.classList.add('fadeout');
+          document.body.classList.remove('envelope-active');
+
+          // Stop particles
+          cancelAnimationFrame(animFrameId);
+        }, 3400);
+
+        // 4. Remove overlay from DOM
+        setTimeout(() => {
+          overlay.style.display = 'none';
+          window.removeEventListener('resize', resizeCanvas);
+        }, 4500);
+      });
+    }
+
+    function spawnPetals(parent) {
+      const PETAL_COUNT = 45;
+      const colors = [
+        '#B8856C', '#D4A68E', '#E8C4B0', '#F5DDD3',
+        '#C9967E', '#DEB8A0', '#A07862', '#E6D2C4',
+        '#F0C9B8', '#C4866E'
+      ];
+
+      // Center of the screen
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+
+      for (let i = 0; i < PETAL_COUNT; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'petal';
+
+        // Random properties
+        const size = 14 + Math.random() * 22;
+        const angle = (Math.PI * 2 * i) / PETAL_COUNT + (Math.random() - 0.5) * 0.8;
+        const distance = 120 + Math.random() * 280;
+        const px = Math.cos(angle) * distance;
+        const py = Math.sin(angle) * distance;
+        const rot = Math.floor(Math.random() * 720 - 360);
+        const delay = Math.random() * 0.4;
+        const duration = 2 + Math.random() * 1;
+
+        petal.style.cssText = `
+          left: ${cx - size / 2}px;
+          top: ${cy - size / 2}px;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          --petal-size: ${size}px;
+          --petal-x: ${px}px;
+          --petal-y: ${py}px;
+          --petal-rot: ${rot}deg;
+          --petal-delay: ${delay}s;
+          --petal-duration: ${duration}s;
+        `;
+
+        parent.appendChild(petal);
+
+        // Clean up after animation
+        setTimeout(() => petal.remove(), (delay + duration) * 1000 + 200);
       }
     }
   </script>
