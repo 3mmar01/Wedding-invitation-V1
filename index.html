@@ -1356,6 +1356,134 @@
     }
 
     /* ===========================================
+       Countdown Timer
+       =========================================== */
+    .countdown-section {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: var(--clr-bg);
+      position: relative;
+      z-index: 1;
+    }
+
+    .countdown-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+
+    .countdown-block {
+      background: var(--clr-brown);
+      border-radius: 16px;
+      padding: 1.5rem 1rem;
+      min-width: 90px;
+      box-shadow:
+        0 6px 24px rgba(74, 53, 37, 0.2),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle top highlight on each block */
+    .countdown-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184,133,108,0.35), transparent);
+    }
+
+    .countdown-number {
+      font-family: var(--font-display-en);
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--clr-bg);
+      display: block;
+      transition: transform 0.15s ease;
+    }
+
+    /* Pop animation when digit changes */
+    .countdown-number.tick {
+      animation: countdownPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes countdownPop {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.18); }
+      100% { transform: scale(1); }
+    }
+
+    .countdown-label {
+      font-family: var(--font-accent);
+      font-size: 0.75rem;
+      color: var(--clr-cream-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 0.6rem;
+      display: block;
+    }
+
+    /* Separator dots between blocks */
+    .countdown-sep {
+      font-family: var(--font-display-en);
+      font-size: 2rem;
+      color: var(--clr-brown-warm);
+      opacity: 0.5;
+      line-height: 1;
+      align-self: flex-start;
+      margin-top: 1.5rem;
+      user-select: none;
+    }
+
+    /* Arabic-mode adjustments */
+    body:not(.ltr) .countdown-number {
+      font-family: var(--font-display);
+    }
+
+    /* Countdown complete state */
+    .countdown-complete {
+      font-family: var(--font-display-en);
+      font-size: 1.4rem;
+      color: var(--clr-brown);
+      margin-top: 2rem;
+    }
+
+    body:not(.ltr) .countdown-complete {
+      font-family: var(--font-display);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .countdown-wrapper { gap: 0.7rem; }
+      .countdown-block {
+        min-width: 75px;
+        padding: 1.2rem 0.8rem;
+        border-radius: 12px;
+      }
+      .countdown-number { font-size: 2.2rem; }
+      .countdown-label { font-size: 0.65rem; }
+      .countdown-sep { font-size: 1.5rem; margin-top: 1.2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .countdown-section { padding: 3rem 1rem; }
+      .countdown-wrapper { gap: 0.5rem; margin-top: 2rem; }
+      .countdown-block {
+        min-width: 64px;
+        padding: 1rem 0.6rem;
+      }
+      .countdown-number { font-size: 1.8rem; }
+      .countdown-label { font-size: 0.6rem; margin-top: 0.4rem; }
+      .countdown-sep { font-size: 1.2rem; margin-top: 1rem; }
+    }
+
+    /* ===========================================
        SECTION 5: RSVP
        =========================================== */
     .rsvp-section {
@@ -2073,6 +2201,46 @@
   </section>
 
   <!-- =============================================
+       Countdown Timer
+       ============================================= -->
+  <section class="countdown-section" id="countdown">
+    <div class="section-container">
+      <div class="scroll-reveal">
+        <span class="section-subtitle" data-i18n="countdownSubtitle">The Big Day</span>
+        <h2 class="section-title" data-i18n="countdownTitle">Counting Down</h2>
+      </div>
+
+      <div class="countdown-wrapper scroll-reveal" id="countdown-wrapper">
+        <div class="countdown-block">
+          <span class="countdown-number" id="cd-days">00</span>
+          <span class="countdown-label" data-i18n="cdDays">Days</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-block">
+          <span class="countdown-number" id="cd-hours">00</span>
+          <span class="countdown-label" data-i18n="cdHours">Hours</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-block">
+          <span class="countdown-number" id="cd-minutes">00</span>
+          <span class="countdown-label" data-i18n="cdMinutes">Minutes</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-block">
+          <span class="countdown-number" id="cd-seconds">00</span>
+          <span class="countdown-label" data-i18n="cdSeconds">Seconds</span>
+        </div>
+      </div>
+
+      <div class="ornament-divider scroll-reveal">
+        <span class="ornament-line"></span>
+        <span class="ornament-icon">✦</span>
+        <span class="ornament-line"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
        SECTION 5: RSVP Form
        ============================================= -->
   <section class="rsvp-section" id="rsvp">
@@ -2182,6 +2350,7 @@
       initLanguageSwitcher();
       initScrollReveal();
       initFloatingHearts();
+      initCountdown();
       initRSVPForm();
       initThankYou();
     });
@@ -2238,6 +2407,13 @@
         envelopeHint: 'اضغط لفتح الدعوة',
         letterNames: 'تقى و يوسف',
         letterInvite: 'دعوة زفاف',
+        countdownSubtitle: 'اليوم الموعود',
+        countdownTitle: 'العد التنازلي',
+        cdDays: 'أيام',
+        cdHours: 'ساعات',
+        cdMinutes: 'دقائق',
+        cdSeconds: 'ثواني',
+        countdownDone: '🎉 اليوم هو يومنا المنتظر!',
       },
       en: {
         heroNameBride: 'Toqa',
@@ -2287,6 +2463,13 @@
         envelopeHint: 'Click to open',
         letterNames: 'Toqa & Youssef',
         letterInvite: 'Wedding Invitation',
+        countdownSubtitle: 'The Big Day',
+        countdownTitle: 'Counting Down',
+        cdDays: 'Days',
+        cdHours: 'Hours',
+        cdMinutes: 'Minutes',
+        cdSeconds: 'Seconds',
+        countdownDone: '🎉 Today is our special day!',
       },
     };
 
@@ -2659,7 +2842,7 @@
           r: 1 + Math.random() * 2.5,
           dx: (Math.random() - 0.5) * 0.4,
           dy: -(0.2 + Math.random() * 0.5),
-          opacity: 0.15 + Math.random() * 0.35,
+          opacity: 1 + Math.random() * 0.35,
           color: Math.random() > 0.5
             ? `rgba(237, 232, 223, OPACITY)`   // cream
             : `rgba(184, 133, 108, OPACITY)`,   // rose
@@ -2758,6 +2941,65 @@
         // Clean up after animation
         setTimeout(() => petal.remove(), (delay + duration) * 1000 + 200);
       }
+    }
+
+    /* -------------------------------------------
+       Countdown Timer
+       ------------------------------------------- */
+    function initCountdown() {
+      const TARGET = new Date('September 16, 2026 18:00:00').getTime();
+
+      const elDays    = document.getElementById('cd-days');
+      const elHours   = document.getElementById('cd-hours');
+      const elMinutes = document.getElementById('cd-minutes');
+      const elSeconds = document.getElementById('cd-seconds');
+      const wrapper   = document.getElementById('countdown-wrapper');
+
+      if (!elDays || !elHours || !elMinutes || !elSeconds) return;
+
+      // Store previous values to detect changes for animation
+      let prev = { d: '', h: '', m: '', s: '' };
+
+      function update() {
+        const now  = Date.now();
+        const diff = TARGET - now;
+
+        if (diff <= 0) {
+          // Countdown complete
+          clearInterval(timer);
+          if (wrapper) {
+            const dict = translations[currentLang] || translations.en;
+            wrapper.innerHTML = '<p class="countdown-complete">' + (dict.countdownDone || '🎉 Today is our special day!') + '</p>';
+          }
+          return;
+        }
+
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+        const dStr = String(d).padStart(2, '0');
+        const hStr = String(h).padStart(2, '0');
+        const mStr = String(m).padStart(2, '0');
+        const sStr = String(s).padStart(2, '0');
+
+        // Update and animate on change
+        if (dStr !== prev.d) { elDays.textContent = dStr;    triggerPop(elDays);    prev.d = dStr; }
+        if (hStr !== prev.h) { elHours.textContent = hStr;   triggerPop(elHours);   prev.h = hStr; }
+        if (mStr !== prev.m) { elMinutes.textContent = mStr; triggerPop(elMinutes); prev.m = mStr; }
+        if (sStr !== prev.s) { elSeconds.textContent = sStr; triggerPop(elSeconds); prev.s = sStr; }
+      }
+
+      function triggerPop(el) {
+        el.classList.remove('tick');
+        // Force reflow so re-adding the class restarts the animation
+        void el.offsetWidth;
+        el.classList.add('tick');
+      }
+
+      update(); // Run immediately
+      const timer = setInterval(update, 1000);
     }
   </script>
 
