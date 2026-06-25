@@ -1396,14 +1396,14 @@
       border-radius: 23px 23px 4px 4px;
       position: relative;
       transition: transform 0.3s var(--transition-smooth),
-                  box-shadow 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+        box-shadow 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
       cursor: default;
     }
 
     .color-arch:hover {
       transform: translateY(-6px) scale(1.08);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
     }
 
     /* Subtle inner highlight */
@@ -1415,7 +1415,7 @@
       right: 6px;
       height: 20px;
       border-radius: 14px 14px 0 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
       pointer-events: none;
     }
 
@@ -1447,23 +1447,71 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .dresscode-section { padding: 4rem 1.5rem 3rem; }
-      .dresscode-text { font-size: 0.95rem; }
-      .color-arch { width: 38px; height: 60px; border-radius: 19px 19px 4px 4px; }
-      .color-arch::before { border-radius: 12px 12px 0 0; }
-      .color-palette { gap: 0.5rem; }
-      .children-heading { font-size: 1.15rem; }
-      .children-text { font-size: 0.9rem; }
+      .dresscode-section {
+        padding: 4rem 1.5rem 3rem;
+      }
+
+      .dresscode-text {
+        font-size: 0.95rem;
+      }
+
+      .color-arch {
+        width: 38px;
+        height: 60px;
+        border-radius: 19px 19px 4px 4px;
+      }
+
+      .color-arch::before {
+        border-radius: 12px 12px 0 0;
+      }
+
+      .color-palette {
+        gap: 0.5rem;
+      }
+
+      .children-heading {
+        font-size: 1.15rem;
+      }
+
+      .children-text {
+        font-size: 0.9rem;
+      }
     }
 
     @media (max-width: 480px) {
-      .dresscode-section { padding: 3rem 1rem 2.5rem; }
-      .dresscode-text { font-size: 0.88rem; }
-      .color-arch { width: 32px; height: 50px; border-radius: 16px 16px 3px 3px; }
-      .color-arch::before { border-radius: 10px 10px 0 0; top: 4px; left: 4px; right: 4px; height: 14px; }
-      .color-palette { gap: 0.4rem; }
-      .children-heading { font-size: 1.05rem; }
-      .children-text { font-size: 0.82rem; }
+      .dresscode-section {
+        padding: 3rem 1rem 2.5rem;
+      }
+
+      .dresscode-text {
+        font-size: 0.88rem;
+      }
+
+      .color-arch {
+        width: 32px;
+        height: 50px;
+        border-radius: 16px 16px 3px 3px;
+      }
+
+      .color-arch::before {
+        border-radius: 10px 10px 0 0;
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        height: 14px;
+      }
+
+      .color-palette {
+        gap: 0.4rem;
+      }
+
+      .children-heading {
+        font-size: 1.05rem;
+      }
+
+      .children-text {
+        font-size: 0.82rem;
+      }
     }
 
     /* ===========================================
@@ -1493,7 +1541,7 @@
       min-width: 90px;
       box-shadow:
         0 6px 24px rgba(74, 53, 37, 0.2),
-        inset 0 1px 0 rgba(255,255,255,0.06);
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
       position: relative;
       overflow: hidden;
     }
@@ -1506,7 +1554,7 @@
       left: 10%;
       right: 10%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(184,133,108,0.35), transparent);
+      background: linear-gradient(90deg, transparent, rgba(184, 133, 108, 0.35), transparent);
     }
 
     .countdown-number {
@@ -1525,9 +1573,17 @@
     }
 
     @keyframes countdownPop {
-      0% { transform: scale(1); }
-      40% { transform: scale(1.18); }
-      100% { transform: scale(1); }
+      0% {
+        transform: scale(1);
+      }
+
+      40% {
+        transform: scale(1.18);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
 
     .countdown-label {
@@ -1571,27 +1627,58 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .countdown-wrapper { gap: 0.7rem; }
+      .countdown-wrapper {
+        gap: 0.7rem;
+      }
+
       .countdown-block {
         min-width: 75px;
         padding: 1.2rem 0.8rem;
         border-radius: 12px;
       }
-      .countdown-number { font-size: 2.2rem; }
-      .countdown-label { font-size: 0.65rem; }
-      .countdown-sep { font-size: 1.5rem; margin-top: 1.2rem; }
+
+      .countdown-number {
+        font-size: 2.2rem;
+      }
+
+      .countdown-label {
+        font-size: 0.65rem;
+      }
+
+      .countdown-sep {
+        font-size: 1.5rem;
+        margin-top: 1.2rem;
+      }
     }
 
     @media (max-width: 480px) {
-      .countdown-section { padding: 3rem 1rem; }
-      .countdown-wrapper { gap: 0.5rem; margin-top: 2rem; }
+      .countdown-section {
+        padding: 3rem 1rem;
+      }
+
+      .countdown-wrapper {
+        gap: 0.5rem;
+        margin-top: 2rem;
+      }
+
       .countdown-block {
         min-width: 64px;
         padding: 1rem 0.6rem;
       }
-      .countdown-number { font-size: 1.8rem; }
-      .countdown-label { font-size: 0.6rem; margin-top: 0.4rem; }
-      .countdown-sep { font-size: 1.2rem; margin-top: 1rem; }
+
+      .countdown-number {
+        font-size: 1.8rem;
+      }
+
+      .countdown-label {
+        font-size: 0.6rem;
+        margin-top: 0.4rem;
+      }
+
+      .countdown-sep {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+      }
     }
 
     /* ===========================================
@@ -2322,7 +2409,8 @@
         <h2 class="section-title" data-i18n="dressCodeTitle">What to Wear</h2>
       </div>
 
-      <p class="dresscode-text scroll-reveal" data-i18n="dressCodeText">Here is a color scheme but you're absolutely fine wearing your favorite color ❤️ And we kindly asked that guests refrain from wearing White 🙃</p>
+      <p class="dresscode-text scroll-reveal" data-i18n="dressCodeText">Here is a color scheme but you're absolutely
+        fine wearing your favorite color ❤️ And we kindly asked that guests refrain from wearing White 🙃</p>
 
       <div class="color-palette scroll-reveal">
         <div class="color-arch" style="background: #9AA06A;" title="Martini Olive"></div>
@@ -2338,7 +2426,9 @@
 
       <div class="scroll-reveal">
         <h3 class="children-heading" data-i18n="childrenHeading">👶 Children</h3>
-        <p class="children-text" data-i18n="childrenText">We truly adore your children, but this celebration will be exclusively for adults so ONE child only allowed. We hope you can take the opportunity to enjoy a night out with us!</p>
+        <p class="children-text" data-i18n="childrenText">We truly adore your children, but this celebration will be
+          exclusively for adults so ONE child only allowed. We hope you can take the opportunity to enjoy a night out
+          with us!</p>
       </div>
 
       <div class="ornament-divider scroll-reveal">
@@ -2561,7 +2651,7 @@
         dressCodeTitle: 'ماذا ترتدين؟',
         dressCodeText: 'إليكم لوحة ألوان مقترحة ولكن يمكنكم ارتداء لونكم المفضل ❤️ ونرجو من الضيوف التكرم بعدم ارتداء اللون الأبيض 🙃',
         childrenHeading: '👶 الأطفال',
-        childrenText: 'نحب أطفالكم كثيراً، ولكن هذا الاحتفال سيكون للكبار فقط لذلك يُسمح بطفل واحد فقط. نأمل أن تستغلوا هذه الفرصة للاستمتاع بليلة رائعة معنا!',
+        childrenText: 'نحب أطفالكم كثيراً، ولكن هذا الاحتفال سيكون للراشدين لذلك يُسمح بطفل واحد فقط. نأمل أن تستغلوا هذه الفرصة للاستمتاع بليلة رائعة معنا!',
         countdownSubtitle: 'اليوم الموعود',
         countdownTitle: 'العد التنازلي',
         cdDays: 'أيام',
@@ -3109,11 +3199,11 @@
     function initCountdown() {
       const TARGET = new Date('September 16, 2026 18:00:00').getTime();
 
-      const elDays    = document.getElementById('cd-days');
-      const elHours   = document.getElementById('cd-hours');
+      const elDays = document.getElementById('cd-days');
+      const elHours = document.getElementById('cd-hours');
       const elMinutes = document.getElementById('cd-minutes');
       const elSeconds = document.getElementById('cd-seconds');
-      const wrapper   = document.getElementById('countdown-wrapper');
+      const wrapper = document.getElementById('countdown-wrapper');
 
       if (!elDays || !elHours || !elMinutes || !elSeconds) return;
 
@@ -3121,7 +3211,7 @@
       let prev = { d: '', h: '', m: '', s: '' };
 
       function update() {
-        const now  = Date.now();
+        const now = Date.now();
         const diff = TARGET - now;
 
         if (diff <= 0) {
@@ -3145,8 +3235,8 @@
         const sStr = String(s).padStart(2, '0');
 
         // Update and animate on change
-        if (dStr !== prev.d) { elDays.textContent = dStr;    triggerPop(elDays);    prev.d = dStr; }
-        if (hStr !== prev.h) { elHours.textContent = hStr;   triggerPop(elHours);   prev.h = hStr; }
+        if (dStr !== prev.d) { elDays.textContent = dStr; triggerPop(elDays); prev.d = dStr; }
+        if (hStr !== prev.h) { elHours.textContent = hStr; triggerPop(elHours); prev.h = hStr; }
         if (mStr !== prev.m) { elMinutes.textContent = mStr; triggerPop(elMinutes); prev.m = mStr; }
         if (sStr !== prev.s) { elSeconds.textContent = sStr; triggerPop(elSeconds); prev.s = sStr; }
       }
