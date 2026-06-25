@@ -1356,6 +1356,117 @@
     }
 
     /* ===========================================
+       Dress Code & Children Policy
+       =========================================== */
+    .dresscode-section {
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      background: var(--clr-bg-section);
+      position: relative;
+      z-index: 1;
+    }
+
+    .dresscode-text {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      color: var(--clr-text);
+      line-height: 2;
+      max-width: 600px;
+      margin: 2rem auto 0;
+    }
+
+    body.ltr .dresscode-text {
+      font-family: var(--font-body-en);
+    }
+
+    /* Arch-shaped color palette */
+    .color-palette {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 2.5rem auto;
+      max-width: 550px;
+    }
+
+    .color-arch {
+      width: 46px;
+      height: 72px;
+      border-radius: 23px 23px 4px 4px;
+      position: relative;
+      transition: transform 0.3s var(--transition-smooth),
+                  box-shadow 0.3s ease;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+      cursor: default;
+    }
+
+    .color-arch:hover {
+      transform: translateY(-6px) scale(1.08);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    }
+
+    /* Subtle inner highlight */
+    .color-arch::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      right: 6px;
+      height: 20px;
+      border-radius: 14px 14px 0 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* Children section heading */
+    .children-heading {
+      font-family: var(--font-display-en);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--clr-brown);
+      margin-top: 1rem;
+    }
+
+    body:not(.ltr) .children-heading {
+      font-family: var(--font-display);
+    }
+
+    .children-text {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--clr-text-muted);
+      line-height: 2;
+      max-width: 580px;
+      margin: 0.8rem auto 0;
+    }
+
+    body.ltr .children-text {
+      font-family: var(--font-body-en);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .dresscode-section { padding: 4rem 1.5rem 3rem; }
+      .dresscode-text { font-size: 0.95rem; }
+      .color-arch { width: 38px; height: 60px; border-radius: 19px 19px 4px 4px; }
+      .color-arch::before { border-radius: 12px 12px 0 0; }
+      .color-palette { gap: 0.5rem; }
+      .children-heading { font-size: 1.15rem; }
+      .children-text { font-size: 0.9rem; }
+    }
+
+    @media (max-width: 480px) {
+      .dresscode-section { padding: 3rem 1rem 2.5rem; }
+      .dresscode-text { font-size: 0.88rem; }
+      .color-arch { width: 32px; height: 50px; border-radius: 16px 16px 3px 3px; }
+      .color-arch::before { border-radius: 10px 10px 0 0; top: 4px; left: 4px; right: 4px; height: 14px; }
+      .color-palette { gap: 0.4rem; }
+      .children-heading { font-size: 1.05rem; }
+      .children-text { font-size: 0.82rem; }
+    }
+
+    /* ===========================================
        Countdown Timer
        =========================================== */
     .countdown-section {
@@ -2201,6 +2312,45 @@
   </section>
 
   <!-- =============================================
+       Dress Code & Children Policy
+       ============================================= -->
+  <section class="dresscode-section" id="dresscode">
+    <div class="section-container">
+
+      <div class="scroll-reveal">
+        <span class="section-subtitle" data-i18n="dressCodeSubtitle">Dress Code</span>
+        <h2 class="section-title" data-i18n="dressCodeTitle">What to Wear</h2>
+      </div>
+
+      <p class="dresscode-text scroll-reveal" data-i18n="dressCodeText">Here is a color scheme but you're absolutely fine wearing your favorite color ❤️ And we kindly asked that guests refrain from wearing White 🙃</p>
+
+      <div class="color-palette scroll-reveal">
+        <div class="color-arch" style="background: #9AA06A;" title="Martini Olive"></div>
+        <div class="color-arch" style="background: #7F8663;" title="Sage Green"></div>
+        <div class="color-arch" style="background: #8D6B58;" title="Mocha Brown"></div>
+        <div class="color-arch" style="background: #B76A32;" title="Copper"></div>
+        <div class="color-arch" style="background: #B35A3A;" title="Terracotta"></div>
+        <div class="color-arch" style="background: #A34E2E;" title="Rust"></div>
+        <div class="color-arch" style="background: #B85B27;" title="Burnt Orange"></div>
+        <div class="color-arch" style="background: #8A4F33;" title="Cinnamon"></div>
+        <div class="color-arch" style="background: #5A4035;" title="Chocolate Brown"></div>
+      </div>
+
+      <div class="scroll-reveal">
+        <h3 class="children-heading" data-i18n="childrenHeading">👶 Children</h3>
+        <p class="children-text" data-i18n="childrenText">We truly adore your children, but this celebration will be exclusively for adults so ONE child only allowed. We hope you can take the opportunity to enjoy a night out with us!</p>
+      </div>
+
+      <div class="ornament-divider scroll-reveal">
+        <span class="ornament-line"></span>
+        <span class="ornament-icon">✦</span>
+        <span class="ornament-line"></span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =============================================
        Countdown Timer
        ============================================= -->
   <section class="countdown-section" id="countdown">
@@ -2407,6 +2557,11 @@
         envelopeHint: 'اضغط لفتح الدعوة',
         letterNames: 'تقى و يوسف',
         letterInvite: 'دعوة زفاف',
+        dressCodeSubtitle: 'كود الملابس',
+        dressCodeTitle: 'ماذا ترتدين؟',
+        dressCodeText: 'إليكم لوحة ألوان مقترحة ولكن يمكنكم ارتداء لونكم المفضل ❤️ ونرجو من الضيوف التكرم بعدم ارتداء اللون الأبيض 🙃',
+        childrenHeading: '👶 الأطفال',
+        childrenText: 'نحب أطفالكم كثيراً، ولكن هذا الاحتفال سيكون للكبار فقط لذلك يُسمح بطفل واحد فقط. نأمل أن تستغلوا هذه الفرصة للاستمتاع بليلة رائعة معنا!',
         countdownSubtitle: 'اليوم الموعود',
         countdownTitle: 'العد التنازلي',
         cdDays: 'أيام',
@@ -2463,6 +2618,11 @@
         envelopeHint: 'Click to open',
         letterNames: 'Toqa & Youssef',
         letterInvite: 'Wedding Invitation',
+        dressCodeSubtitle: 'Dress Code',
+        dressCodeTitle: 'What to Wear',
+        dressCodeText: 'Here is a color scheme but you\'re absolutely fine wearing your favorite color \u2764\uFE0F And we kindly asked that guests refrain from wearing White \uD83D\uDE43',
+        childrenHeading: '\uD83D\uDC76 Children',
+        childrenText: 'We truly adore your children, but this celebration will be exclusively for adults so ONE child only allowed. We hope you can take the opportunity to enjoy a night out with us!',
         countdownSubtitle: 'The Big Day',
         countdownTitle: 'Counting Down',
         cdDays: 'Days',
