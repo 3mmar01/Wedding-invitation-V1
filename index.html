@@ -1258,6 +1258,13 @@
       display: block;
     }
 
+    .detail-card-icon .calendar-icon-svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
     .detail-card-label {
       font-family: var(--font-accent);
       font-size: 0.75rem;
@@ -2369,7 +2376,7 @@
 
       <div class="details-grid scroll-reveal-stagger">
         <div class="detail-card">
-          <span class="detail-card-icon">📅</span>
+          <span class="detail-card-icon"><svg class="calendar-icon-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="40" height="36" rx="4" ry="4" fill="#FAF7F2" stroke="#A0845C" stroke-width="2.5"/><rect x="4" y="8" width="40" height="12" rx="4" ry="0" fill="#A0845C"/><rect x="4" y="16" width="40" height="4" fill="#A0845C"/><line x1="14" y1="4" x2="14" y2="12" stroke="#4A3525" stroke-width="3" stroke-linecap="round"/><line x1="34" y1="4" x2="34" y2="12" stroke="#4A3525" stroke-width="3" stroke-linecap="round"/><text x="24" y="37" text-anchor="middle" font-family="'Inter', sans-serif" font-size="18" font-weight="700" fill="#4A3525">16</text></svg></span>
           <span class="detail-card-label" data-i18n="dateLabel">Date</span>
           <p class="detail-card-value" data-i18n="dateValue" data-i18n-html="true">Wednesday<br />September 16, 2026</p>
         </div>
@@ -2377,7 +2384,7 @@
         <div class="detail-card">
           <span class="detail-card-icon">🕖</span>
           <span class="detail-card-label" data-i18n="timeLabel">Time</span>
-          <p class="detail-card-value" data-i18n="timeValue">6:00 PM</p>
+          <p class="detail-card-value" data-i18n="timeValue">7:00 PM</p>
         </div>
 
         <div class="detail-card">
@@ -2427,7 +2434,7 @@
       <div class="scroll-reveal">
         <h3 class="children-heading" data-i18n="childrenHeading">👶 Children</h3>
         <p class="children-text" data-i18n="childrenText">We truly adore your children, but this celebration will be
-          exclusively for adults so ONE child only allowed. We hope you can take the opportunity to enjoy a night out
+          exclusively for adults. We hope you can take the opportunity to enjoy a night out
           with us!</p>
       </div>
 
@@ -2615,7 +2622,7 @@
         dateLabel: 'التاريخ',
         dateValue: 'الأربعاء<br/>١٦ سبتمبر ٢٠٢٦',
         timeLabel: 'الوقت',
-        timeValue: 'السادسة مساءً',
+        timeValue: 'السابعة مساءً',
         venueLabel: 'المكان',
         venueValue: 'مسجد عبد المنعم رياض',
         mapsBtn: 'الذهاب إلى الخريطة',
@@ -2651,7 +2658,7 @@
         dressCodeTitle: 'ماذا ترتدين؟',
         dressCodeText: 'إليكم لوحة ألوان مقترحة ولكن يمكنكم ارتداء لونكم المفضل ❤️ ونرجو من الضيوف التكرم بعدم ارتداء اللون الأبيض 🙃',
         childrenHeading: '👶 الأطفال',
-        childrenText: 'نحب أطفالكم كثيراً، ولكن هذا الاحتفال سيكون للراشدين لذلك يُسمح بطفل واحد فقط. نأمل أن تستغلوا هذه الفرصة للاستمتاع بليلة رائعة معنا!',
+        childrenText: 'نحب أطفالكم كثيراً، ولكن هذا الاحتفال سيكون للراشدين . نأمل أن تستغلوا هذه الفرصة للاستمتاع بليلة رائعة معنا!',
         countdownSubtitle: 'اليوم الموعود',
         countdownTitle: 'العد التنازلي',
         cdDays: 'أيام',
@@ -2676,7 +2683,7 @@
         dateLabel: 'Date',
         dateValue: 'Wednesday<br/>September 16, 2026',
         timeLabel: 'Time',
-        timeValue: '6:00 PM',
+        timeValue: '7:00 PM',
         venueLabel: 'Venue',
         venueValue: 'Abdul Moneim Riad Mosque',
         mapsBtn: 'Go to Maps',
@@ -2712,7 +2719,7 @@
         dressCodeTitle: 'What to Wear',
         dressCodeText: 'Here is a color scheme but you\'re absolutely fine wearing your favorite color \u2764\uFE0F And we kindly asked that guests refrain from wearing White \uD83D\uDE43',
         childrenHeading: '\uD83D\uDC76 Children',
-        childrenText: 'We truly adore your children, but this celebration will be exclusively for adults so ONE child only allowed. We hope you can take the opportunity to enjoy a night out with us!',
+        childrenText: 'We truly adore your children, but this celebration will be exclusively for adults. We hope you can take the opportunity to enjoy a night out with us!',
         countdownSubtitle: 'The Big Day',
         countdownTitle: 'Counting Down',
         cdDays: 'Days',
@@ -3197,7 +3204,7 @@
        Countdown Timer
        ------------------------------------------- */
     function initCountdown() {
-      const TARGET = new Date('September 16, 2026 18:00:00').getTime();
+      const TARGET = new Date('September 16, 2026 19:00:00').getTime();
 
       const elDays = document.getElementById('cd-days');
       const elHours = document.getElementById('cd-hours');
